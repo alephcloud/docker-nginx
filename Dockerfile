@@ -8,7 +8,7 @@
 FROM debian-stable
 
 RUN apt-get update; \
-    apt-get install -y nginx-full puppet; \
+    apt-get install -y nginx-extras puppet; \
     rm /var/lib/apt/lists/*_*; \
     rm -rf /etc/nginx; ln -s /media/host/config /etc/nginx
 
