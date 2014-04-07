@@ -1,0 +1,16 @@
+[Unit]
+Description=Docker registry
+After=docker.service
+Requires=docker.service
+After=docker-registry.service
+Requires=docker-registry.service
+
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/docker rm -f nginx
+ExecStart=/usr/bin/docker run --rm --name nginx --publish 443:443 --link docker-registry:DOCKER_REGISTRY --volume /media/state/nginx:/media/host nginx
+ExecStop=/usr/bin/docker stop nginx
+
+[Install]
+WantedBy=local.target
+
