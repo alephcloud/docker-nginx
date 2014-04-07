@@ -14,4 +14,4 @@ RUN apt-get update; \
 
 EXPOSE 443
 
-CMD FACTER_docker_registry_ip=$DOCKER_REGISTRY_PORT_5000_TCP_ADDR puppet apply /media/host/manifest.pp; exec nginx
+CMD FACTER_docker_registry_ip=$DOCKER_REGISTRY_PORT_5000_TCP_ADDR puppet apply /media/host/manifest.pp; exec tail -F /var/log/nginx/error.log & exec nginx
