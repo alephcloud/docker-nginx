@@ -3,7 +3,7 @@
 # AUTHOR:         Irene Knapp <irene.knapp@icloud.com>
 # DESCRIPTION:    Image with nginx installation
 # TO_BUILD:       docker build -rm -t nginx .
-# TO_RUN:         docker run -p 443:443 -v /media/state/nginx:/media/host registry
+# TO_RUN:         docker run -p 443:443 -v /media/state/nginx:/media/host nginx
 
 FROM debian-stable
 
